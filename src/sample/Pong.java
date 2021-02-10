@@ -23,7 +23,7 @@ public class Pong extends Application {
 
     public static Circle bola1;
     public static Pane canvas;
-    public static Rectangle pala1,pala2;
+    public static Pala pala1,pala2;
 
     @Override
     public void start(final Stage primaryStage) {
@@ -42,14 +42,12 @@ public class Pong extends Application {
         bola1.setLayoutY(limits.getMaxY()/2);
 
 
-        pala1=new Rectangle(20,100,Color.WHITE);
-        pala1.relocate(20, limits.getMaxY()/2-50);
+        pala1= new Pala(canvas,20,(int)limits.getMaxY()/2-50);
 
-        pala2=new Rectangle(20,100,Color.WHITE);
-        pala2.relocate(limits.getMaxX()-40, limits.getMaxY()/2-50);
+        pala2=new Pala(canvas,(int)limits.getMaxX()-40,(int)limits.getMaxY()/2-50);
 
         canvas.getChildren().addAll(bola1);
-        canvas.getChildren().addAll(pala1,pala2);
+
 
 
         final Timeline loop = new Timeline(new KeyFrame(Duration.millis(10), new EventHandler<ActionEvent>() {
